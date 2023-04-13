@@ -65,6 +65,7 @@
             }
 
             static void Board()
+                //methode qui cree le board
             {
                 Console.WriteLine("     |     |      ");
                 Console.WriteLine("  {0}  |  {1}  |  {2}", arr[1], arr[2], arr[3]);
@@ -76,10 +77,11 @@
                 Console.WriteLine("  {0}  |  {1}  |  {2}", arr[7], arr[8], arr[9]);
                 Console.WriteLine("     |     |      ");
             }
-
+            //verifie si quelqun a gagne
             static int CheckWin()
             {
-
+                //condition gagnante horizontale
+                //condition gagnante premiere rangee
                 if (arr[1] == arr[2] && arr[2] == arr[3])
                 {
                     return 1;
