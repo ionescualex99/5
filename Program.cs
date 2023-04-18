@@ -6,8 +6,8 @@
         //faire array
         static char[] arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         static int player = 1;//joueur 1 par default
-        static int choice; //choix
-        static int flag = 0; //verifie qui a gagne, si valeur est 1 quelqun a gagne
+        static int choix; //choix
+        static int drapeau = 0; //verifie qui a gagne, si valeur est 1 quelqun a gagne
                              //si 0 match continue
         static void Main(string[] args)
         {
@@ -31,33 +31,33 @@
                 //Console.WriteLine("\n");
                 Console.WriteLine();
                 Board();//appelle fonction board
-                choice = int.Parse(Console.ReadLine());//prend tour joueur
+                choix = int.Parse(Console.ReadLine());//prend tour joueur
 
-                if (arr[choice] != 'X' && arr[choice] != 'O')
+                if (arr[choix] != 'X' && arr[choix] != 'O')
                 //verifie si la position est marquee avec X ou 0
                 {
                     if (player % 2 == 0) //si tour du joueur, alors mettre O, sinon X
                     {
-                        arr[choice] = 'O';
+                        arr[choix] = 'O';
                         player++;
                     }
                     else
                     {
-                        arr[choice] = 'X';
+                        arr[choix] = 'X';
                         player++;
                     }
                 }
 
-                flag = CheckWin();//verifie si quelqun a gagne
+                drapeau = Verifier();//verifie si quelqun a gagne
             }
-            while (flag != 1 && flag != -1);
+            while (drapeau != 1 && drapeau != -1);
             //ce loop roule jusque ce que toutes cases sont occupees
             //avec X ou O ou joueur n'a pas gagne
 
             Console.Clear();//clear console
             Board();//va chercher le board rempli
-            if (flag == 1)
-            // si valeur flag est 1 alors quelqun a gagne
+            if (drapeau == 1)
+            // si valeur drapeau est 1 alors quelqun a gagne
             {
                 Console.WriteLine("joueur {0} gagne", (player % 2) + 1);
 
@@ -77,10 +77,10 @@
                 Console.WriteLine("     |     |      ");
             }
             //verifie si quelqun a gagne
-            static int CheckWin()
+            static int Verifier()
             {
                 //condition gagnante horizontale
-                //condition gagnante premiere rangee
+                //premiere rangee
                 if (arr[1] == arr[2] && arr[2] == arr[3])
                 {
                     return 1;
