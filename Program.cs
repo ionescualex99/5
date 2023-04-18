@@ -4,8 +4,8 @@
     class Program
     {
         //faire array
-        static char[] arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-        static int player = 1;//joueur 1 par default
+        static char[] table = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        static int joueur = 1;//joueur 1 par default
         static int choix; //choix
         static int drapeau = 0; //verifie qui a gagne, si valeur est 1 quelqun a gagne
                              //si 0 match continue
@@ -18,7 +18,7 @@
                 Console.WriteLine("Joueur2:O");
                 //Console.WriteLine("\n");
                 Console.WriteLine();
-                if (player % 2 == 0)//verifie tour joueur
+                if (joueur % 2 == 0)//verifie tour joueur
                 {
                     Console.WriteLine("Joueur2");
                     Console.WriteLine("Choisir Case:");
@@ -33,18 +33,18 @@
                 Board();//appelle fonction board
                 choix = int.Parse(Console.ReadLine());//prend tour joueur
 
-                if (arr[choix] != 'X' && arr[choix] != 'O')
+                if (table[choix] != 'X' && table[choix] != 'O')
                 //verifie si la position est marquee avec X ou 0
                 {
-                    if (player % 2 == 0) //si tour du joueur, alors mettre O, sinon X
+                    if (joueur % 2 == 0) //si tour du joueur, alors mettre O, sinon X
                     {
-                        arr[choix] = 'O';
-                        player++;
+                        table[choix] = 'O';
+                        joueur++;
                     }
                     else
                     {
-                        arr[choix] = 'X';
-                        player++;
+                        table[choix] = 'X';
+                        joueur++;
                     }
                 }
 
@@ -59,7 +59,7 @@
             if (drapeau == 1)
             // si valeur drapeau est 1 alors quelqun a gagne
             {
-                Console.WriteLine("joueur {0} gagne", (player % 2) + 1);
+                Console.WriteLine("joueur {0} gagne", (joueur % 2) + 1);
 
             }
 
@@ -67,13 +67,13 @@
                 //methode qui cree le board
             {
                 Console.WriteLine("     |     |      ");
-                Console.WriteLine("  {0}  |  {1}  |  {2}", arr[1], arr[2], arr[3]);
+                Console.WriteLine("  {0}  |  {1}  |  {2}", table[1], table[2], table[3]);
                 Console.WriteLine("_____|_____|_____ ");
                 Console.WriteLine("     |     |      ");
-                Console.WriteLine("  {0}  |  {1}  |  {2}", arr[4], arr[5], arr[6]);
+                Console.WriteLine("  {0}  |  {1}  |  {2}", table[4], table[5], table[6]);
                 Console.WriteLine("_____|_____|_____ ");
                 Console.WriteLine("     |     |      ");
-                Console.WriteLine("  {0}  |  {1}  |  {2}", arr[7], arr[8], arr[9]);
+                Console.WriteLine("  {0}  |  {1}  |  {2}", table[7], table[8], table[9]);
                 Console.WriteLine("     |     |      ");
             }
             //verifie si quelqun a gagne
@@ -81,43 +81,43 @@
             {
                 //condition gagnante horizontale
                 //premiere rangee
-                if (arr[1] == arr[2] && arr[2] == arr[3])
+                if (table[1] == table[2] && table[2] == table[3])
                 {
                     return 1;
                 }
                 //condition gagnante deuxieme rangee
-                else if (arr[4] == arr[5] && arr[5] == arr[6])
+                else if (table[4] == table[5] && table[5] == table[6])
                 {
                     return 1;
                 }
                 //condition gagnante troisieme rangee
-                else if (arr[6] == arr[7] && arr[7] == arr[8])
+                else if (table[6] == table[7] && table[7] == table[8])
                 {
                     return 1;
                 }
                 //Condition gagnante verticale
                 //premiere colonne
-                else if (arr[1] == arr[4] && arr[4] == arr[7])
+                else if (table[1] == table[4] && table[4] == table[7])
                 {
                     return 1;
                 }
                 //condition gagnante deuxieme colonne
-                else if (arr[2] == arr[5] && arr[5] == arr[8])
+                else if (table[2] == table[5] && table[5] == table[8])
                 {
                     return 1;
                 }
                 //condition gagnante troisieme colonne
-                else if (arr[3] == arr[6] && arr[6] == arr[9])
+                else if (table[3] == table[6] && table[6] == table[9])
                 {
                     return 1;
                 }
                 //Condition gagnante diagonale
 
-                else if (arr[1] == arr[5] && arr[5] == arr[9])
+                else if (table[1] == table[5] && table[5] == table[9])
                 {
                     return 1;
                 }
-                else if (arr[3] == arr[5] && arr[5] == arr[7])
+                else if (table[3] == table[5] && table[5] == table[7])
                 {
                     return 1;
                 }
