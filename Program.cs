@@ -8,7 +8,6 @@
         static int player = 1;//joueur 1 par default
         static int choice; //choix
         static int flag = 0; //verifie qui a gagne, si valeur est 1 quelqun a gagne
-                             //si -1 Match egal,
                              //si 0 match continue
         static void Main(string[] args)
         {
@@ -86,32 +85,33 @@
                 {
                     return 1;
                 }
-
+                //condition gagnante deuxieme rangee
                 else if (arr[4] == arr[5] && arr[5] == arr[6])
                 {
                     return 1;
                 }
-
+                //condition gagnante troisieme rangee
                 else if (arr[6] == arr[7] && arr[7] == arr[8])
                 {
                     return 1;
                 }
-
+                //Condition gagnante verticale
+                //premiere colonne
                 else if (arr[1] == arr[4] && arr[4] == arr[7])
                 {
                     return 1;
                 }
-
+                //condition gagnante deuxieme colonne
                 else if (arr[2] == arr[5] && arr[5] == arr[8])
                 {
                     return 1;
                 }
-
+                //condition gagnante troisieme colonne
                 else if (arr[3] == arr[6] && arr[6] == arr[9])
                 {
                     return 1;
                 }
-
+                //Condition gagnante diagonale
                 else if (arr[1] == arr[5] && arr[5] == arr[9])
                 {
                     return 1;
@@ -120,11 +120,7 @@
                 {
                     return 1;
                 }
-
-                else if (arr[1] != '1' && arr[2] != '2' && arr[3] != '3' && arr[4] != '4' && arr[5] != '5' && arr[6] != '6' && arr[7] != '7' && arr[8] != '8' && arr[9] != '9')
-                {
-                    return -1;
-                }
+              
                 else
                 {
                     return 0;
