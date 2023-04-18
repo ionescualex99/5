@@ -112,6 +112,7 @@
                     return 1;
                 }
                 //Condition gagnante diagonale
+
                 else if (arr[1] == arr[5] && arr[5] == arr[9])
                 {
                     return 1;
