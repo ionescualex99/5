@@ -63,6 +63,7 @@
                 Console.WriteLine("joueur {0} a gagné!!", (joueur % 2) + 1);
                 Console.WriteLine("Félicitations!!");
             }
+            //Console.ReadLine();
 
             static void Board()
                 //methode qui cree le board
