@@ -121,12 +121,17 @@
                 {
                     return 1;
                 }
-              
+                //verifie egalite
+                //si toutes les cellules ont X ou O alors egal
+                else if (table[1] != '1' && table[2] != '2' && table[3] != '3' && table[4] != '4' && table[5] != '5' && table[6] != '6' && table[7] != '7' && table[8] != '8' && table[9] != '9')
+                {
+                    return -1;
+                }
                 else
                 {
                     return 0;
                 }
+                }
             }
         }
     }
-}
