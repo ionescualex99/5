@@ -4,10 +4,10 @@
     class Program
     {
         //faire array
-        static char[] table = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-        static int joueur = 1;//joueur 1 par default
+        static char[] board = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        static int player = 1;//joueur 1 par default
         static int choix; //choix
-        static int drapeau = 0; //verifie qui a gagne, si valeur est 1 quelqun a gagne
+        static int gagnant = 0; //verifie qui a gagne, si valeur est 1 quelqun a gagne
                              //si 0 match continue
         static void Main(string[] args)
         {
@@ -18,7 +18,7 @@
                 Console.WriteLine("Joueur2:O");
                 //Console.WriteLine("\n");
                 Console.WriteLine();
-                if (joueur % 2 == 0)//verifie tour joueur
+                if (player % 2 == 0)//verifie tour joueur
                 {
                     Console.WriteLine("Joueur2");
                     Console.WriteLine("Choisir Case:");
@@ -33,34 +33,34 @@
                 Board();//appelle fonction board
                 choix = int.Parse(Console.ReadLine());//prend tour joueur
 
-                if (table[choix] != 'X' && table[choix] != 'O')
+                if (board[choix] != 'X' && board[choix] != 'O')
                 //verifie si la position est marquee avec X ou 0
                 {
-                    if (joueur % 2 == 0) //si tour du joueur, alors mettre O, sinon X
+                    if (player % 2 == 0) //si tour du joueur, alors mettre O, sinon X
                     {
-                        table[choix] = 'O';
-                        joueur++;
+                        board[choix] = 'O';
+                        player++;
                     }
                     else
                     {
-                        table[choix] = 'X';
-                        joueur++;
+                        board[choix] = 'X';
+                        player++;
                     }
                 }
 
-                drapeau = Verifier();//verifie si quelqun a gagne
+                gagnant = Verifier();//verifie si quelqun a gagne
             }
-            while (drapeau != 1 && drapeau != -1);
+            while (gagnant != 1);
             //ce loop roule jusque ce que toutes cases sont occupees
             //avec X ou O ou joueur n'a pas gagne
 
             Console.Clear();//clear console
             Board();//va chercher le board rempli
-            if (drapeau == 1)
+            if (gagnant == 1)
             // si valeur drapeau est 1 alors quelqun a gagne
             {
                 Console.WriteLine();
-                Console.WriteLine("joueur {0} a gagné!!", (joueur % 2) + 1);
+                Console.WriteLine("joueur {0} a gagné!!", (player % 2) + 1);
                 Console.WriteLine("Félicitations!!");
             }
             //Console.ReadLine();
@@ -72,13 +72,13 @@
                 Console.WriteLine("********************************");
                 Console.WriteLine();
                 Console.WriteLine("     |     |      ");
-                Console.WriteLine("  {0}  |  {1}  |  {2}", table[1], table[2], table[3]);
+                Console.WriteLine("  {0}  |  {1}  |  {2}", board[1], board[2], board[3]);
                 Console.WriteLine("_____|_____|_____ ");
                 Console.WriteLine("     |     |      ");
-                Console.WriteLine("  {0}  |  {1}  |  {2}", table[4], table[5], table[6]);
+                Console.WriteLine("  {0}  |  {1}  |  {2}", board[4], board[5], board[6]);
                 Console.WriteLine("_____|_____|_____ ");
                 Console.WriteLine("     |     |      ");
-                Console.WriteLine("  {0}  |  {1}  |  {2}", table[7], table[8], table[9]);
+                Console.WriteLine("  {0}  |  {1}  |  {2}", board[7], board[8], board[9]);
                 Console.WriteLine("     |     |      ");
             }
             //verifie si quelqun a gagne
@@ -86,43 +86,43 @@
             {
                 //condition gagnante horizontale
                 //premiere rangee
-                if (table[1] == table[2] && table[2] == table[3])
+                if (board[1] == board[2] && board[2] == board[3])
                 {
                     return 1;
                 }
                 //condition gagnante deuxieme rangee
-                else if (table[4] == table[5] && table[5] == table[6])
+                else if (board[4] == board[5] && board[5] == board[6])
                 {
                     return 1;
                 }
                 //condition gagnante troisieme rangee
-                else if (table[6] == table[7] && table[7] == table[8])
+                else if (board[6] == board[7] && board[7] == board[8])
                 {
                     return 1;
                 }
                 //Condition gagnante verticale
                 //premiere colonne
-                else if (table[1] == table[4] && table[4] == table[7])
+                else if (board[1] == board[4] && board[4] == board[7])
                 {
                     return 1;
                 }
                 //condition gagnante deuxieme colonne
-                else if (table[2] == table[5] && table[5] == table[8])
+                else if (board[2] == board[5] && board[5] == board[8])
                 {
                     return 1;
                 }
                 //condition gagnante troisieme colonne
-                else if (table[3] == table[6] && table[6] == table[9])
+                else if (board[3] == board[6] && board[6] == board[9])
                 {
                     return 1;
                 }
                 //Condition gagnante diagonale
 
-                else if (table[1] == table[5] && table[5] == table[9])
+                else if (board[1] == board[5] && board[5] == board[9])
                 {
                     return 1;
                 }
-                else if (table[3] == table[5] && table[5] == table[7])
+                else if (board[3] == board[5] && board[5] == board[7])
                 {
                     return 1;
                 }
