@@ -54,18 +54,22 @@
             //ce loop roule jusque ce que toutes cases sont occupees
             //avec X ou O ou joueur n'a pas gagne
 
-            Console.Clear();//clear console
-            Board();//va chercher le board rempli
+            //Console.Clear();//clear console
+            //Board();//va chercher le board rempli
             if (drapeau == 1)
             // si valeur drapeau est 1 alors quelqun a gagne
             {
-                Console.WriteLine("joueur {0} gagne", (joueur % 2) + 1);
-
+                Console.WriteLine();
+                Console.WriteLine("joueur {0} a gagné!!", (joueur % 2) + 1);
+                Console.WriteLine("Félicitations!!");
             }
 
             static void Board()
                 //methode qui cree le board
             {
+                Console.WriteLine("********************************");
+                Console.WriteLine("********************************");
+                Console.WriteLine();
                 Console.WriteLine("     |     |      ");
                 Console.WriteLine("  {0}  |  {1}  |  {2}", table[1], table[2], table[3]);
                 Console.WriteLine("_____|_____|_____ ");
@@ -120,12 +124,6 @@
                 else if (table[3] == table[5] && table[5] == table[7])
                 {
                     return 1;
-                }
-                //verifie egalite
-                //si toutes les cellules ont X ou O alors egal
-                else if (table[1] != '1' && table[2] != '2' && table[3] != '3' && table[4] != '4' && table[5] != '5' && table[6] != '6' && table[7] != '7' && table[8] != '8' && table[9] != '9')
-                {
-                    return -1;
                 }
                 else
                 {
