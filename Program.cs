@@ -54,8 +54,8 @@
             //ce loop roule jusque ce que toutes cases sont occupees
             //avec X ou O ou joueur n'a pas gagne
 
-            //Console.Clear();//clear console
-            //Board();//va chercher le board rempli
+            Console.Clear();//clear console
+            Board();//va chercher le board rempli
             if (drapeau == 1)
             // si valeur drapeau est 1 alors quelqun a gagne
             {
